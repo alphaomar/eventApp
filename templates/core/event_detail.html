@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="columns">
+        <div class="column is-two-thirds">
+            <div class="card">
+                <div class="card-image">
+                    <figure class="image is-16by9">
+                        <img src="{{ event.banner_image.url }}" alt="{{ event.title }}">
+                    </figure>
+                </div>
+                <div class="card-content">
+                    <p class="title">{{ event.title }}</p>
+                    <p class="subtitle">{{ event.start_time }}</p>
+                    <div class="content">
+                        <p>{{ event.description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <!-- Additional information or actions can be placed here -->
+            <!-- For example: -->
+            <!-- <div class="card">
+                <div class="card-content">
+                    <div class="content">
+                        <p>Additional information or actions</p>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</div>
+{% endblock %}

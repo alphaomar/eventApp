@@ -1,0 +1,325 @@
+{#{% extends 'base.html' %}#}
+{#{% load static %}#}
+{#{% block content %}#}
+{#	#}
+{#    #}
+{#    <div class="container">#}
+{#        <div class="columns">#}
+{#            <div class="column is-3 ">#}
+{#                <aside class="menu is-hidden-mobile">#}
+{#                    <p class="menu-label">#}
+{#                        General#}
+{#                    </p>#}
+{#                    <ul class="menu-list">#}
+{#                        <li><a href="#" class="is-active">Dashboard</a></li>#}
+{#                        <li><a>Customers</a></li>#}
+{#                        <li><a>Other</a></li>#}
+{#                    </ul>#}
+{#                    <p class="menu-label">#}
+{#                        Administration#}
+{#                    </p>#}
+{#                    <ul class="menu-list">#}
+{#                        <li><a href="#">Team Settings</a></li>#}
+{#                       #}
+{#                        <li><a>Projects</a></li>#}
+{#                        <li><a>Events</a></li>#}
+{#                        <li><a>Blogs</a></li>#}
+{#                        <li><a>Partners</a></li>#}
+{#                        <li><a>Applications</a></li>#}
+{#                    </ul>#}
+{#                    #}
+{#                </aside>#}
+{#            </div>#}
+{#            <div class="column is-9">#}
+{#               #}
+{#                <section class="hero is-info welcome is-small">#}
+{#                    <div class="hero-body">#}
+{#                        <div class="container">#}
+{#                            <h1 class="title">#}
+{#                                Hello, Django Girls Limkokwing University.#}
+{#                            </h1>#}
+{#                            <h2 class="subtitle">#}
+{#                                I hope you are having a great day!#}
+{#                            </h2>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </section>#}
+{#                <section class="info-tiles">#}
+{#                    <div class="tile is-ancestor has-text-centered">#}
+{#                        <div class="tile is-parent">#}
+{#                            <article class="tile is-child box">#}
+{#                                <p class="title"></p>#}
+{#                                <p class="subtitle">Team Members</p>#}
+{#                            </article>#}
+{#                        </div>#}
+{#                        <div class="tile is-parent">#}
+{#                            <article class="tile is-child box">#}
+{#                                <p class="title">59k</p>#}
+{#                                <p class="subtitle">Products</p>#}
+{#                            </article>#}
+{#                        </div>#}
+{#                        <div class="tile is-parent">#}
+{#                            <article class="tile is-child box">#}
+{#                                <p class="title">3.4k</p>#}
+{#                                <p class="subtitle">Open Orders</p>#}
+{#                            </article>#}
+{#                        </div>#}
+{#                        <div class="tile is-parent">#}
+{#                            <article class="tile is-child box">#}
+{#                                <p class="title">19</p>#}
+{#                                <p class="subtitle">Exceptions</p>#}
+{#                            </article>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </section>#}
+{#                #}
+{#               #}
+{##}
+{#                #}
+{#                <section class="section bg-light-gray">#}
+{#    <div class="container">#}
+{#        <div class="columns">#}
+{#            <div class="column is-8 is-offset-2">#}
+{#                <h1 class="title has-text-centered">Dashboard</h1>#}
+{#                <p class="subtitle has-text-centered">All created events</p>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#</section>#}
+{##}
+{#                #}
+{#                <section class="section">#}
+{#    <div class="container">#}
+{#        <div class="columns">#}
+{#            <div class="column is-12 has-text-centered mb-5"> <!-- Align center -->#}
+{#                <a href="#" class="button is-primary">#}
+{#                    <span class="icon">#}
+{#                        <i class="fas fa-plus"></i>#}
+{#                    </span>#}
+{#                    <span>Add new event</span>#}
+{#                </a>#}
+{#            </div>#}
+{#            #}
+{#            <div class="column is-12">#}
+{#    <div class="table-container has-text-centered"> <!-- Align center -->#}
+{#        <table class="table is-striped is-hoverable is-fullwidth">#}
+{#            <thead>#}
+{#                <tr>#}
+{#                    <th>Event title</th>#}
+{#                    <th>Start time</th>#}
+{#                    <th>End time</th>#}
+{#                    <th>Organizer</th>#}
+{#                    <th>Category</th>#}
+{#                    <th>Visibility</th>#}
+{#                    <th>Actions</th>#}
+{#                </tr>#}
+{#            </thead>#}
+{#            <tbody>#}
+{#                {% for event in events %}#}
+{#                <tr>#}
+{#                    <td><a href="#">{{ event.title }}</a></td>#}
+{#                    <td>{{ event.start_time }}</td>#}
+{#                    <td>{{ event.end_time }}</td>#}
+{#                    <td>{{ event.organizer }}</td>#}
+{#                    <td>{{ event.category }}</td>#}
+{#                    <td>#}
+{#                        {% if event.visibility %}#}
+{#                        <span class="tag is-success">Visible</span>#}
+{#                        {% else %}#}
+{#                        <span class="tag is-danger">Hidden</span>#}
+{#                        {% endif %}#}
+{#                    </td>#}
+{#                    <td>#}
+{#                        <a href="#" class="button is-info is-small">#}
+{#                            <span class="icon">#}
+{#                                <i class="fas fa-edit"></i>#}
+{#                            </span>#}
+{#                            <span>Edit</span>#}
+{#                        </a>#}
+{#                        <a href="#" class="button is-danger is-small">#}
+{#                            <span class="icon">#}
+{#                                <i class="fas fa-trash-alt"></i>#}
+{#                            </span>#}
+{#                            <span>Delete</span>#}
+{#                        </a>#}
+{#                    </td>#}
+{#                </tr>#}
+{#                {% endfor %}#}
+{#            </tbody>#}
+{#        </table>#}
+{#    </div>#}
+{#</div>#}
+{##}
+{#        </div>#}
+{#    </div>#}
+{#</section>#}
+{##}
+{#                            #}
+{#                            #}
+{#                             </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        #}
+{#    #}
+{#    #}
+{#    #}
+{#  #}
+{#{% endblock %}#}
+
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    
+    <div class="container">
+        <div class="columns is-centered"> <!-- Align center -->
+            <div class="column is-3 ">
+                <aside class="menu is-hidden-mobile">
+                    <p class="menu-label">
+                        General
+                    </p>
+                    <ul class="menu-list">
+                        <li><a href="#" class="is-active">Dashboard</a></li>
+                        <li><a>Customers</a></li>
+                        <li><a>Other</a></li>
+                    </ul>
+                    <p class="menu-label">
+                        Administration
+                    </p>
+                    <ul class="menu-list">
+                        <li><a href="#">Team Settings</a></li>
+                       
+                        <li><a>Projects</a></li>
+                        <li><a>Events</a></li>
+                        <li><a>Blogs</a></li>
+                        <li><a>Partners</a></li>
+                        <li><a>Applications</a></li>
+                    </ul>
+                    
+                </aside>
+            </div>
+            <div class="column is-9">
+               
+                <section class="hero is-info welcome is-small">
+                    <div class="hero-body">
+                        <div class="container">
+                            <h1 class="title">
+                                Hello, {{ request.user.first_name }}  {{ request.user.last_name }}
+                            </h1>
+                            <h2 class="subtitle">
+                                I hope you are having a great day!
+                            </h2>
+                        </div>
+                    </div>
+                </section>
+                <section class="info-tiles">
+                    <div class="tile is-ancestor has-text-centered">
+                        <div class="tile is-parent">
+                            <article class="tile is-child box">
+                                <p class="title"></p>
+                                <p class="subtitle">Team Members</p>
+                            </article>
+                        </div>
+                        <div class="tile is-parent">
+                            <article class="tile is-child box">
+                                <p class="title">59k</p>
+                                <p class="subtitle">Products</p>
+                            </article>
+                        </div>
+                        <div class="tile is-parent">
+                            <article class="tile is-child box">
+                                <p class="title">3.4k</p>
+                                <p class="subtitle">Open Orders</p>
+                            </article>
+                        </div>
+                        <div class="tile is-parent">
+                            <article class="tile is-child box">
+                                <p class="title">19</p>
+                                <p class="subtitle">Exceptions</p>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+                
+               
+
+                
+                <section class="section bg-light-gray">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-8 is-offset-2">
+                <h1 class="title has-text-centered">Dashboard</h1>
+                <p class="subtitle has-text-centered">All created events</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+                
+                <section class="section">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-12">
+                <div class="table-container"> <!-- Remove "has-text-centered" class -->
+                    <table class="table is-striped is-hoverable is-fullwidth">
+                        <thead>
+                            <tr>
+                                <th>Event title</th>
+                                <th>Start time</th>
+                                <th>End time</th>
+                                <th>Organizer</th>
+                                <th>Category</th>
+                                <th>Visibility</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for event in events %}
+                            <tr>
+                                <td><a href="#">{{ event.title }}</a></td>
+                                <td>{{ event.start_time }}</td>
+                                <td>{{ event.end_time }}</td>
+                                <td>{{ event.organizer }}</td>
+                                <td>{{ event.category }}</td>
+                                <td>
+                                    {% if event.visibility %}
+                                    <span class="tag is-success">Visible</span>
+                                    {% else %}
+                                    <span class="tag is-danger">Hidden</span>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    <a href="#" class="button is-info is-small">
+                                        <span class="icon">
+                                            <i class="fas fa-edit"></i>
+                                        </span>
+                                        <span>Edit</span>
+                                    </a>
+                                    <a href="#" class="button is-danger is-small">
+                                        <span class="icon">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </span>
+                                        <span>Delete</span>
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+                            
+                            
+                             </div>
+                </div>
+            </div>
+        
+    
+    
+    
+  
+{% endblock %}

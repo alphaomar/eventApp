@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+  <div class="columns is-centered">
+    <div class="column is-half">
+      <div class="box">
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          {{ form|crispy }}
+{#          <div class="field">#}
+{#            <div class="file">#}
+{#              <label class="file-label">#}
+{#                {{ form.profile_picture|as_crispy_field }}#}
+{#                <span class="file-cta">#}
+{#                  <span class="file-label">#}
+{#                    Choose a file…#}
+{#                  </span>#}
+{#                </span>#}
+{#              </label>#}
+{#            </div>#}
+{#          </div>#}
+          <div class="field">
+            <div class="control">
+              <button type="submit" class="button is-primary">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,158 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<meta name="author" content="Aldi Duzha">
+	<meta name="description" content="Search houses and apartments for rent anywhere within the US. View floorplans, pricing, images and more. Find your perfect rental.">
+	<meta name="keywords" content="bulma, rent, template, apartments, page, website, free, awesome">
+	<link rel="canonical" href="https://aldi.github.io/bulma-rent-template/index.html"/>
+	<title>Bulma Rent - Free Bulma Template</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/admin.css' %}">
+</head>
+<body>
+
+<div id="app">
+    <header class="hero is-full height is-light">
+        <div class="hero-head">
+            <nav class="navbar is-transparent is-spaced" role="navigation" aria-label="main navigation">
+                <div class="container">
+                    <div class="navbar-brand">
+                        <a class="navbar-item" href="#">
+                            <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma Rent" width="80" height="20">
+                        </a>
+                        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarTopMain">
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                        </a>
+                    </div>
+                    <div class="navbar-menu" id="navbarTopMain">
+                        <div class="navbar-end">
+                            <a href="#" class="navbar-item has-text-weight-semibold {% if url_name == 'blog' %}is-active{% endif %}">
+                                <span>Blog</span>
+                                <span class="tag is-success m-l-5">NEW</span>
+                            </a>
+                            <a href="{% url 'home' %}" class="navbar-item has-text-weight-semibold {% if url_name == 'halls-venues' %}is-active{% endif %}">Home</a>
+                            <a href="#" class="navbar-item has-text-weight-semibold {% if url_name == 'halls-venues' %}is-active{% endif %}">Halls and Venues</a>
+                            <a href="{% url 'event_list' %}" class="navbar-item has-text-weight-semibold {% if url_name == 'events' %}is-active{% endif %}">Events</a>
+                            <a href="#" class="navbar-item has-text-weight-semibold {% if url_name == 'post-event' %}is-active{% endif %}">About Us</a>
+                            
+                            {% if request.user.is_authenticated %}
+                                {% if request.user.role == 'organizer' %}
+                                    <div class="navbar-item has-dropdown is-hoverable">
+                                        <a class="navbar-link">
+                                            {% if request.user.role == 'user' %}
+                                                {{ request.user.first_name }} {{ request.user.last_name }}
+                                            {% else %}
+                                                {{ request.user.first_name }}
+                                            {% endif %}
+                                        </a>
+                                        <div class="navbar-dropdown">
+                                            <a href="{% url 'organizer-dashboard' %}" class="navbar-item">Dashboard</a>
+                                            <a href="#" class="navbar-item">Jobs</a>
+                                            <a href="#" class="navbar-item">Events</a>
+                                            <a href="#" class="navbar-item">Post a new Event</a>
+                                            <hr class="navbar-divider">
+                                            <a href="{% url 'accounts:logout' %}" class="navbar-item">Logout</a>
+                                            <a href="#" class="navbar-item">Report an issue</a>
+                                        </div>
+                                    </div>
+                                {% elif request.user.role == 'user' %}
+                                    <a href="#" class="navbar-item has-text-weight-semibold {% if url_name == 'halls-venues' %}is-active{% endif %}">Favorite</a>
+                                    <a href="#" class="navbar-item has-text-weight-semibold {% if url_name == 'halls-venues' %}is-active{% endif %}">My Events</a>
+                                    <div class="navbar-item has-dropdown is-hoverable">
+                                        <a class="navbar-link">
+                                            {% if request.user.role == 'user' %}
+                                                {{ request.user.first_name }} {{ request.user.last_name }}
+                                            {% else %}
+                                                {{ request.user.first_name }}
+                                            {% endif %}
+                                        </a>
+                                        <div class="navbar-dropdown">
+                                            <a href="#" class="navbar-item">Edit Profile</a>
+                                            <a href="{% url 'accounts:logout' %}" class="navbar-item">Logout</a>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% else %}
+                                <div class="navbar-item has-dropdown is-hoverable">
+                                    <a class="navbar-link">Register</a>
+                                    <div class="navbar-dropdown">
+                                        <a href="{% url 'accounts:register_regular_user' %}" class="navbar-item {% if url_name == 'employee-register' %}is-active{% endif %}">Users</a>
+                                        <a href="{% url 'accounts:register_organizer' %}" class="navbar-item {% if url_name == 'employer-register' %}is-active{% endif %}">Organizers</a>
+                                    </div>
+                                </div>
+                                <div class="navbar-item">
+                                    <a href="{% url 'accounts:login' %}" class="button is-light {% if url_name == 'login' %}is-active{% endif %}">
+                                        <span class="icon">
+                                            <i class="fas fa-sign-in-alt"></i>
+                                        </span>
+                                        <span>Login</span>
+                                    </a>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+</div>
+
+{% block content %}
+	
+{% endblock content %}
+
+
+	<footer class="hero is-small is-light">
+		<div class="hero-body">
+			<div class="container has-text-centered">
+				<a href="https://bulma.io">
+					<img src="https://bulma.io/images/made-with-bulma.png" alt="Made with Bulma" width="171" height="32">
+				</a>
+				<div class="columns m-t-10">
+					<div class="column">
+						<nav class="has-text-grey-light">
+							<a href="#" class="has-text-primary">About us</a> &bullet;
+							<a href="#" class="has-text-primary">Our story</a> &bullet;
+							<a href="#" class="has-text-primary">Post a listing</a> &bullet;
+							<a href="#" class="has-text-primary">Contact us</a> &bullet;
+						</nav>
+					</div>
+				</div>
+				<div class="b-t m-t-30 p-t-30 has-text-grey-light is-size-7">
+					Rent Template 2020 &copy; Aldi Duzha <br> <a href="#" class="has-text-primary">Terms of use</a> and <a class="has-text-primary" href="#">Privacy policy</a>.
+					<a href="#" class="has-text-primary">Fair Housing</a>
+				</div>
+			</div>
+		</div>
+	</footer>
+</div>
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+        // Get all "navbar-burger" elements
+        const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+        // Check if there are any navbar burgers
+        if ($navbarBurgers.length > 0) {
+            // Add a click event on each of them
+            $navbarBurgers.forEach( el => {
+            	el.addEventListener('click', () => {
+                    // Get the target from the "data-target" attribute
+                    const target = el.dataset.target;
+                    const $target = document.getElementById(target);
+                    // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                    el.classList.toggle('is-active');
+                    $target.classList.toggle('is-active');
+                });
+            });
+        }
+    });
+</script>
+</body>
+</html>

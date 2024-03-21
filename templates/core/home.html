@@ -1,0 +1,399 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+	
+    
+    
+    
+{#    <div class="container">#}
+{#        <h2 class="subtitle">#}
+{#					<span class="has-text-centered is-block">#}
+{#						Search hundreds of thousands of events, shows, festivals and conferences to attend.#}
+{#					</span>#}
+{#        </h2>#}
+{#        <h1 class="title">#}
+{#            <span class="is-size-2 has-text-centered is-block">Find An Event You’ll Love.</span>#}
+{#        </h1>#}
+{#        <div class="columns is-centered">#}
+{#            <div class="column is-7">#}
+{#                <div class="search-form">#}
+{#                    <form action="{% url 'search_event' %}" method="get">#}
+{#                        <div class="field has-addons has-shadow-field">#}
+{#                            <div class="control has-icons-left is-expanded">#}
+{#                                <input type="text" id="mainSearch" defaultvalue="" placeholder="Find rentals in..." class="input is-large">#}
+{#                                <span class="icon is-small is-left">#}
+{#											<svg class="svg-inline--fa fa-search fa-w-16" aria-hidden="true" data-prefix="fa" data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">#}
+{#												<path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z">#}
+{#												</path>#}
+{#											</svg>#}
+{#										</span>#}
+{#                            </div>#}
+{#                            <div class="control">#}
+{#                                <button type="button" class="button is-large is-primary">#}
+{#                                    <span class="has-text-weight-semibold">Go!</span>#}
+{#                                </button>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </form>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#        <div class="has-text-centered">#}
+{#            <img class="m-t-50" src="{% static 'img/property_image.png' %}" alt="Find rentals">#}
+{#        </div>#}
+{#    </div>#}
+    
+    <div class="container">
+    <h2 class="subtitle">
+        <span class="has-text-centered is-block">
+            Search hundreds of thousands of events, shows, festivals and conferences to attend.
+        </span>
+    </h2>
+    <h1 class="title">
+        <span class="is-size-2 has-text-centered is-block">Find An Event You’ll Love.</span>
+    </h1>
+    <div class="columns is-centered">
+        <div class="column is-7">
+            <div class="search-form">
+                <!-- Update form action attribute to point to the search_event URL -->
+                <form action="{% url 'search_event' %}" method="GET">
+                    <div class="field has-addons has-shadow-field">
+                        <div class="control has-icons-left is-expanded">
+                            <input type="text" id="mainSearch" defaultvalue="" placeholder="Find rentals in..." class="input is-large">
+                            <span class="icon is-small is-left">
+                                <svg class="svg-inline--fa fa-search fa-w-16" aria-hidden="true" data-prefix="fa" data-icon="search" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
+                                    <path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z">
+                                    </path>
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="control">
+                            <button type="submit" class="button is-large is-primary">
+                                <span class="has-text-weight-semibold">Go!</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<section class="hero is-medium has-text-centered" >
+    <div class="hero-body ">
+        <div class="container">
+            <h2 class="subtitle">
+                Find trending events in Sierra Leone.
+            </h2>
+            <h1 class="title">
+                Trending Event  listings updated daily.
+            </h1>
+            <br>
+            <div class="columns is-centered">
+                <div class="column is-10">
+                   
+                    <div class="columns is-multiline">
+                         {% for trending_event in trending_events %}
+                        
+                        	
+                        
+                        
+                        <div class="column is-one-third">
+                            <div class="card rb-card">
+                                <div class="card-image">
+                                    <div class="card-image">
+                                        <figure class="image is-16by9">
+                                            <img src="{{ trending_event.banner_image.url }}" alt="Rental Rates and Rental Prices in Phoenix, AZ">
+                                        </figure>
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <h3 class="title is-size-6 ellipsis is-ellipsis-1">
+                                        <a class="has-text-dark">
+                                            {{ trending_event.title }}
+                                        </a>
+                                    </h3>
+                                    <h4 class="subtitle is-size-7 ellipsis is-ellipsis-2">
+                                        {{ trending_event.description }}
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                       
+                        
+                        
+                        
+                        
+                     {% endfor %}   
+                    </div>
+                    
+                </div>
+            </div>
+
+            <img class="m-t-50" src="media/city_clipart.png" alt="Rental listings">
+        </div>
+    </div>
+</section>
+
+
+<div class="container"><hr></div>
+<section class="hero">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-7">
+                    <div class="columns">
+                        <div class="column">
+                            <h1 class="title m-t-60">All marketplaces</h1>
+                            <h2 class="subtitle">Bulma Rent provides you insights into all marketplaces.</h2>
+                        </div>
+                        <div class="column has-text-centered">
+                            <img class="m-t-50" src="media/house_for_rent.png" alt="Rental marketplaces">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="hero is-medium">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-10">
+                    <div class="sub-section">
+                        <h3 class="title is-size-4">Find featured venues for rentals</h3>
+                        <h4 class="subtitle is-size-6">Whether you are looking for venues or halls we got 'em all.</h4>
+                        <div class="columns">
+                            <div class="column">
+                                <div class="card rb-card">
+                                    <div class="card-image">
+                                        <figure class="image is-16by9">
+                                            <img src="https://via.placeholder.com/640x360" alt="Dallas houses for rent">
+                                        </figure>
+                                    </div>
+                                    <div class="card-content">
+                                        <h2 class="title is-size-6">
+                                            <a href="#">
+                                                Houses for rent in<br/> Dallas, TX
+                                            </a>
+                                        </h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="card rb-card">
+                                    <div class="card-image">
+                                        <figure class="image is-16by9">
+                                            <img src="https://via.placeholder.com/640x360" alt="San Antonio apartments for rent">
+                                        </figure>
+                                    </div>
+                                    <div class="card-content">
+                                        <h2 class="title is-size-6">
+                                            <a href="#">
+                                                Apartments for rent in<br/> San Antonio, TX
+                                            </a>
+                                        </h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="card rb-card">
+                                    <div class="card-image">
+                                        <figure class="image is-16by9">
+                                            <img src="https://via.placeholder.com/640x360" alt="Phoenix houses for rent">
+                                        </figure>
+                                    </div>
+                                    <div class="card-content">
+                                        <h2 class="title is-size-6">
+                                            <a href="#">
+                                                Houses for rent in<br/> Phoenix, AZ
+                                            </a>
+                                        </h2>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <div class="columns">
+                           
+                           
+                           
+                            
+                        </div>
+                    </div>
+                    <div class="sub-section">
+                        <div class="columns">
+                            <div class="column">
+                                <h4 class="title is-size-6 is-uppercase">
+                                    From the West
+                                </h4>
+                                <ul>
+                                    <li style="font-size:0.9rem"><a href="#">Rentals in Seattle</a></li>
+                                    <li style="font-size:0.9rem"><a href="#">Rentals in Las Vegas</a></li>
+                                    <li style="font-size:0.9rem"><a href="#">Rentals in Portland</a></li>
+                                    <li style="font-size:0.9rem"><a href="#">Rentals in San Jose</a></li>
+                                    <li style="font-size:0.9rem"><a href="#">Rentals in Mesa</a></li>
+                                </ul>
+                            </div>
+                            <div class="column">
+                                <h4 class="title is-size-6 is-uppercase">
+                                    From the Midwest
+                                </h4>
+                                <ul>
+                                    <li style="font-size:0.9rem"><a href="#">Rentals in Indianapolis</a></li>
+                                    <li style="font-size:0.9rem"><a href="#">Rentals in Kansas City</a></li>
+                                    <li style="font-size:0.9rem"><a href="#">Rentals in Minneapolis</a></li>
+                                    <li style="font-size:0.9rem"><a href="#">Rentals in Albuquerque</a></li>
+                                    <li style="font-size:0.9rem"><a href="#">Rentals in Columbus</a></li>
+                                </ul>
+                            </div>
+                            <div class="column">
+                                <h4 class="title is-size-6 is-uppercase">
+                                    From the South
+                                </h4>
+                                <ul>
+                                    <li style="font-size:0.9rem"><a href="#">Rentals in Charlotte</a></li>
+                                    <li style="font-size:0.9rem"><a href="#">Rentals in Atlanta</a></li>
+                                    <li style="font-size:0.9rem"><a href="#">Rentals in Nashville</a></li>
+                                    <li style="font-size:0.9rem"><a href="#">Rentals in Jacksonville</a></li>
+                                    <li style="font-size:0.9rem"><a href="#">Rentals in Raleigh</a></li>
+                                </ul>
+                            </div>
+                            <div class="column">
+                                <h4 class="title is-size-6 is-uppercase">
+                                    From the East
+                                </h4>
+                                <ul>
+                                    <li style="font-size:0.9rem"><a href="#">Rentals in Washington</a></li>
+                                    <li style="font-size:0.9rem"><a href="#">Rentals in New York</a></li>
+                                    <li style="font-size:0.9rem"><a href="#">Rentals in Baltimore</a></li>
+                                    <li style="font-size:0.9rem"><a href="#">Rentals in Brooklyn</a></li>
+                                    <li style="font-size:0.9rem"><a href="#">Rentals in Boston</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sub-section">
+                        <h3 class="title is-size-4">Browse by popular neighborhoods</h3>
+                        <div class="columns">
+                            <div class="column">
+                                <div class="card rb-card">
+                                    <div class="card-image">
+                                        <figure class="image is-16by9">
+                                            <img src="https://via.placeholder.com/640x360" alt="Washington park rentals">
+                                        </figure>
+                                    </div>
+                                    <div class="card-content">
+                                        <h3 class="title is-size-7">
+                                            <a href="#">
+                                                Washington Park Denver, CO
+                                            </a>
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="card rb-card">
+                                    <div class="card-image">
+                                        <figure class="image is-16by9">
+                                            <img src="https://via.placeholder.com/640x360" alt="Upper West Side NYC rentals">
+                                        </figure>
+                                    </div>
+                                    <div class="card-content">
+                                        <h3 class="title is-size-7">
+                                            <a href="#">
+                                                Upper West Side New York
+                                            </a>
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="card rb-card">
+                                    <div class="card-image">
+                                        <figure class="image is-16by9">
+                                            <img src="https://via.placeholder.com/640x360" alt="Downtown Dallas rentals">
+                                        </figure>
+                                    </div>
+                                    <div class="card-content">
+                                        <h3 class="title is-size-7">
+                                            <a href="#">
+                                                Downtown Dallas, TX
+                                            </a>
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="card rb-card">
+                                    <div class="card-image">
+                                        <figure class="image is-16by9">
+                                            <img src="https://via.placeholder.com/640x360" alt="Lincoln Park Chicago rentals">
+                                        </figure>
+                                    </div>
+                                    <div class="card-content">
+                                        <h3 class="title is-size-7">
+                                            <a href="#">
+                                                Lincoln Park Chicago, IL
+                                            </a>
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="card rb-card">
+                                    <div class="card-image">
+                                        <figure class="image is-16by9">
+                                            <img src="https://via.placeholder.com/640x360" alt="Washington Square West Philadelphia rentals">
+                                        </figure>
+                                    </div>
+                                    <div class="card-content">
+                                        <h3 class="title is-size-7">
+                                            <a href="#">
+                                                Washington Sq. Philadelphia
+                                            </a>
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="hero is-medium is-light" >
+    <div class="hero-body p-b-30">
+        <div class="container">
+            <div class="has-text-centered">
+                <h2 class="subtitle">
+                    For landlords & property managers
+                </h2>
+                <h1 class="title">Want to Decrease Time on Market?</h1>
+                <p class="m-t-30">
+                    <a href="https://github.com/aldi/awesome-bulma-templates" class="button is-medium is-shadowy is-primary">
+                        Learn more
+                    </a>
+                </p>
+                <div class="has-text-centered m-t-60">
+                    <img class="m-t-50" src="{% static 'img/cartoon_city.png.png' %}" alt="Find rentals">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    
+    
+{% endblock %}
